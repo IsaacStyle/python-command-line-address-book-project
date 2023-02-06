@@ -26,15 +26,6 @@ Contact(firstName = 'Ivanna', lastName = 'Tinkle', number = '555-6971', altNumbe
 Contact(firstName = 'Edward', lastName = 'Ligma', number = '555-6972', altNumber = 'none', address = '123 Beegerererer Street').save()
 Contact(firstName = 'Deez', lastName = 'Samuels', number = '555-6973', altNumber = 'none', address = '123 smol street').save()
 
-
-for i in Contact.select().where(Contact.firstName == 'Beeg'):
-  print(i.firstName)
-
-
-# docopt(beeg, argv=None, help=True, version=None, options_first=False)
-
-# usage: beeg
-
 def address_book():
     proceed = 'y'
     while proceed == 'y':
@@ -56,7 +47,7 @@ def address_book():
            proceed = input(f"Apologies if you misread... {proceed} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
         if proceed == 'y':
             print("\nThank you for choosing to proceed!")
-            all_contacts = input("\nWould you like to view all your contacts? Press 'y' f yes, if not, then press 'n'!\n")
+            all_contacts = input("\nWould you like to view all your contacts? Press 'y' if yes, if not, then press 'n'!\n")
             while all_contacts != 'y' and all_contacts != 'n':
                 all_contacts = input(f"\nApologies if you misread... {all_contacts} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
             if all_contacts == 'y':
@@ -67,7 +58,7 @@ def address_book():
                    print(f"Number: {i.number}")
                    print(f"Alt number: {i.altNumber}")
                    print(f"Address: {i.address}\n")
-            one_contact = input("Would you like to search for a contact by name? Press 'y' f yes, if not, then press 'n'!\n")
+            one_contact = input("Would you like to search for a contact by name? Press 'y' if yes, if not, then press 'n'!\n")
             while one_contact != 'y' and one_contact != 'n':
                 one_contact = input(f"Apologies if you misread... {one_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
             if one_contact == 'y':
@@ -79,7 +70,7 @@ def address_book():
                    print(f"Number: {i.number}")
                    print(f"Alt number: {i.altNumber}")
                    print(f"Address: {i.address}\n")
-            create_contact = input("Would you like to create a contact? Press 'y' f yes, if not, then press 'n'!\n")
+            create_contact = input("Would you like to create a contact? Press 'y' if yes, if not, then press 'n'!\n")
             while create_contact != 'y' and create_contact != 'n':
                 create_contact = input(f"\nApologies if you misread... {create_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
             if create_contact == 'y':
@@ -97,7 +88,7 @@ def address_book():
                    print(f"Number: {i.number}")
                    print(f"Alt number: {i.altNumber}")
                    print(f"Address: {i.address}\n")
-            update_contact = input("Would you like to edit a contact? Press 'y' f yes, if not, then press 'n'!\n")
+            update_contact = input("Would you like to edit a contact? Press 'y' if yes, if not, then press 'n'!\n")
             while update_contact != 'y' and update_contact != 'n':
                 update_contact = input(f"\nApologies if you misread... {update_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
             if update_contact == 'y':
@@ -109,7 +100,7 @@ def address_book():
                     print(f"Number: {i.number}")
                     print(f"Alt number: {i.altNumber}")
                     print(f"Address: {i.address}\n")
-                update_contact = input("Is this your contact? Press 'y' f yes, if not, then press 'n'!\n")
+                update_contact = input("Is this your contact? Press 'y' if yes, if not, then press 'n'!\n")
                 while update_contact != 'y' and update_contact != 'n':
                     update_contact = input(f"\nApologies if you misread... {update_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
                 while update_contact == 'n':
@@ -121,7 +112,7 @@ def address_book():
                         print(f"Number: {i.number}")
                         print(f"Alt number: {i.altNumber}")
                         print(f"Address: {i.address}\n")
-                    update_contact = input("Is this your contact? Press 'y' f yes, if not, then press 'n'!\n")
+                    update_contact = input("Is this your contact? Press 'y' if yes, if not, then press 'n'!\n")
                 fname = input("Input First Name\n")
                 lname = input("Input Last Name\n")
                 number = input("Input Number\n")
@@ -136,7 +127,7 @@ def address_book():
                     print(f"Number: {i.number}")
                     print(f"Alt number: {i.altNumber}")
                     print(f"Address: {i.address}\n")
-            delete_contact = input("Would you like to delete a contact? Press 'y' f yes, if not, then press 'n'!\n")
+            delete_contact = input("Would you like to delete a contact? Press 'y' if yes, if not, then press 'n'!\n")
             while delete_contact != 'y' and delete_contact != 'n':
                 delete_contact = input(f"\nApologies if you misread... {delete_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
             if delete_contact == 'y':
@@ -148,7 +139,7 @@ def address_book():
                     print(f"Number: {i.number}")
                     print(f"Alt number: {i.altNumber}")
                     print(f"Address: {i.address}\n")
-                delete_contact = input("Is this your contact? Press 'y' f yes, if not, then press 'n'!\n")
+                delete_contact = input("Is this your contact? Press 'y' if yes, if not, then press 'n'!\n")
                 while delete_contact != 'y' and delete_contact != 'n':
                     delete_contact = input(f"\nApologies if you misread... {delete_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
                 while delete_contact == 'n':
@@ -160,14 +151,14 @@ def address_book():
                         print(f"Number: {i.number}")
                         print(f"Alt number: {i.altNumber}")
                         print(f"Address: {i.address}\n")
-                    delete_contact = input("Is this your contact? Press 'y' f yes, if not, then press 'n'!\n")
-                delete_contact = input(f"Are you sure you wish to delete contact {idd}? Press 'y' f yes, if not, then press 'n'!\n")
+                    delete_contact = input("Is this your contact? Press 'y' if yes, if not, then press 'n'!\n")
+                delete_contact = input(f"Are you sure you wish to delete contact {idd}? Press 'y' if yes, if not, then press 'n'!\n")
                 while delete_contact != 'y' and delete_contact != 'n':
                     delete_contact = input(f"\nApologies if you misread... {delete_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
                 if delete_contact == 'y':
                     Contact.delete().where(Contact.id == idd).execute()
                     print(f"\nContact {idd} Deleted For All Eternity.")
-            proceed = input("\nAll operations complete, would you like to go back to the top? Press 'y' f yes, if not, then press 'n'!\n")
+            proceed = input("\nAll operations complete, would you like to go back to the top? Press 'y' if yes, if not, then press 'n'!\n")
             while proceed != 'y' and proceed != 'n':
                 proceed = input(f"\nApologies if you misread... {proceed} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
 
