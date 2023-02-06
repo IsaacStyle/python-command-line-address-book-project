@@ -46,19 +46,19 @@ def address_book():
         lname = ""
         number = ""
         number2 = ""
-        address = ""
+        addresss = ""
         print("Welcome to the greatest Address Book application the world has ever seen!")
-        proceed = input("If you would like to continue, press 'y', if not, then press 'n'!\n")
+        proceed = input("\nIf you would like to continue, press 'y', if not, then press 'n'!\n")
         while proceed != 'y' and proceed != 'n':
            proceed = input(f"Apologies if you misread... {proceed} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
         if proceed == 'y':
-            print("Thank you for choosing to proceed!")
-            all_contacts = input("Would you like to view all your contacts? Press 'y' f yes, if not, then press 'n'!\n")
+            print("\nThank you for choosing to proceed!")
+            all_contacts = input("\nWould you like to view all your contacts? Press 'y' f yes, if not, then press 'n'!\n")
             while all_contacts != 'y' and all_contacts != 'n':
-                all_contacts = input(f"Apologies if you misread... {all_contacts} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
+                all_contacts = input(f"\nApologies if you misread... {all_contacts} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
             if all_contacts == 'y':
                 for i in Contact:
-                   print(f"first Name: {i.firstName}")
+                   print(f"\nfirst Name: {i.firstName}")
                    print(f"last Name: {i.lastName}")
                    print(f"number: {i.number}")
                    print(f"alt number: {i.altNumber}")
@@ -67,9 +67,26 @@ def address_book():
             while one_contact != 'y' and one_contact != 'n':
                 one_contact = input(f"Apologies if you misread... {one_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
             if one_contact == 'y':
-               contact_name = input("What is the name of your contact?\n")
+               contact_name = input("\nWhat is the name of your contact?\n")
                for i in Contact.select().where(Contact.firstName == contact_name):
-                   print(f"first Name: {i.firstName}")
+                   print(f"\nfirst Name: {i.firstName}")
+                   print(f"last Name: {i.lastName}")
+                   print(f"number: {i.number}")
+                   print(f"alt number: {i.altNumber}")
+                   print(f"address: {i.address}\n")
+            create_contact = input("Would you like to create a contact? Press 'y' f yes, if not, then press 'n'!\n")
+            while create_contact != 'y' and create_contact != 'n':
+                create_contact = input(f"\nApologies if you misread... {create_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
+            if create_contact == 'y':
+                fname = input("Input First Name\n")
+                lname = input("Input Last Name\n")
+                number = input("Input Number\n")
+                number2 = input("Input Alternate Number\n")
+                addresss = input("Input Address\n")
+                Contact(firstName = fname, lastName = lname, number = number, altNumber = number2, address = addresss).save()
+                for i in Contact.select().where(Contact.firstName == fname):
+                   print("\nHere is your new contact info.")
+                   print(f"\nfirst Name: {i.firstName}")
                    print(f"last Name: {i.lastName}")
                    print(f"number: {i.number}")
                    print(f"alt number: {i.altNumber}")
