@@ -38,10 +38,44 @@ for i in Contact.select().where(Contact.firstName == 'Beeg'):
 def address_book():
     proceed = 'y'
     while proceed == 'y':
+        all_contacts = ""
+        one_contact = ""
+        contact_name= ""
+        create_contact = ""
+        fname = ""
+        lname = ""
+        number = ""
+        number2 = ""
+        address = ""
         print("Welcome to the greatest Address Book application the world has ever seen!")
         proceed = input("If you would like to continue, press 'y', if not, then press 'n'!\n")
         while proceed != 'y' and proceed != 'n':
            proceed = input(f"Apologies if you misread... {proceed} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
+        if proceed == 'y':
+            print("Thank you for choosing to proceed!")
+            all_contacts = input("Would you like to view all your contacts? Press 'y' f yes, if not, then press 'n'!\n")
+            while all_contacts != 'y' and all_contacts != 'n':
+                all_contacts = input(f"Apologies if you misread... {all_contacts} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
+            if all_contacts == 'y':
+                for i in Contact:
+                   print(f"first Name: {i.firstName}")
+                   print(f"last Name: {i.lastName}")
+                   print(f"number: {i.number}")
+                   print(f"alt number: {i.altNumber}")
+                   print(f"address: {i.address}\n")
+            one_contact = input("Would you like to search for a contact by name? Press 'y' f yes, if not, then press 'n'!\n")
+            while one_contact != 'y' and one_contact != 'n':
+                one_contact = input(f"Apologies if you misread... {one_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
+            if one_contact == 'y':
+               contact_name = input("What is the name of your contact?\n")
+               for i in Contact.select().where(Contact.firstName == contact_name):
+                   print(f"first Name: {i.firstName}")
+                   print(f"last Name: {i.lastName}")
+                   print(f"number: {i.number}")
+                   print(f"alt number: {i.altNumber}")
+                   print(f"address: {i.address}\n")
+
+
     print("Thank you for using our industry leading application!\nWe hope to see you again soon!")
 
 address_book()  
