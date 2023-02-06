@@ -26,13 +26,22 @@ Contact(firstName = 'Ivanna', lastName = 'Tinkle', number = '555-6971', altNumbe
 Contact(firstName = 'Edward', lastName = 'Ligma', number = '555-6972', altNumber = 'none', address = '123 Beegerererer Street').save()
 Contact(firstName = 'Deez', lastName = 'Samuels', number = '555-6973', altNumber = 'none', address = '123 smol street').save()
 
-beeg = ''
+
 for i in Contact.select().where(Contact.firstName == 'Beeg'):
   print(i.firstName)
-  beeg = i.firstName
 
 
 # docopt(beeg, argv=None, help=True, version=None, options_first=False)
 
 # usage: beeg
 
+def address_book():
+    proceed = 'y'
+    while proceed == 'y':
+        print("Welcome to the greatest Address Book application the world has ever seen!")
+        proceed = input("If you would like to continue, press 'y', if not, then press 'n'!\n")
+        while proceed != 'y' and proceed != 'n':
+           proceed = input(f"Apologies if you misread... {proceed} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
+    print("Thank you for using our industry leading application!\nWe hope to see you again soon!")
+
+address_book()  
