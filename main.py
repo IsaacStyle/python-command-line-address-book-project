@@ -1,6 +1,6 @@
 from peewee import *
 from playhouse.shortcuts import model_to_dict, dict_to_model
-import argparse
+from docopt import docopt
 
 db = PostgresqlDatabase('contacts', user='isaac', password='iamstan', host='localhost', port=5432)
 
@@ -26,6 +26,13 @@ Contact(firstName = 'Ivanna', lastName = 'Tinkle', number = '555-6971', altNumbe
 Contact(firstName = 'Edward', lastName = 'Ligma', number = '555-6972', altNumber = 'none', address = '123 Beegerererer Street').save()
 Contact(firstName = 'Deez', lastName = 'Samuels', number = '555-6973', altNumber = 'none', address = '123 smol street').save()
 
+beeg = ''
 for i in Contact.select().where(Contact.firstName == 'Beeg'):
   print(i.firstName)
+  beeg = i.firstName
+
+
+# docopt(beeg, argv=None, help=True, version=None, options_first=False)
+
+# usage: beeg
 
