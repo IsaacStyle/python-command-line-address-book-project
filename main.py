@@ -42,7 +42,9 @@ def address_book():
         one_contact = ""
         contact_name= ""
         create_contact = ""
-        edit_contact = ""
+        update_contact = ""
+        delete_contact = ""
+        idd = 0
         fname = ""
         lname = ""
         number = ""
@@ -95,8 +97,80 @@ def address_book():
                    print(f"Number: {i.number}")
                    print(f"Alt number: {i.altNumber}")
                    print(f"Address: {i.address}\n")
+            update_contact = input("Would you like to edit a contact? Press 'y' f yes, if not, then press 'n'!\n")
+            while update_contact != 'y' and update_contact != 'n':
+                update_contact = input(f"\nApologies if you misread... {update_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
+            if update_contact == 'y':
+                idd = input("What is your contact's id?\n")
+                for i in Contact.select().where(Contact.id == idd):
+                    print(f"\nContact ID: {i.id}")
+                    print(f"First Name: {i.firstName}")
+                    print(f"Last Name: {i.lastName}")
+                    print(f"Number: {i.number}")
+                    print(f"Alt number: {i.altNumber}")
+                    print(f"Address: {i.address}\n")
+                update_contact = input("Is this your contact? Press 'y' f yes, if not, then press 'n'!\n")
+                while update_contact != 'y' and update_contact != 'n':
+                    update_contact = input(f"\nApologies if you misread... {update_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
+                while update_contact == 'n':
+                    idd = input("What is your contact's id?\n")
+                    for i in Contact.select().where(Contact.id == idd):
+                        print(f"\nContact ID: {i.id}")
+                        print(f"First Name: {i.firstName}")
+                        print(f"Last Name: {i.lastName}")
+                        print(f"Number: {i.number}")
+                        print(f"Alt number: {i.altNumber}")
+                        print(f"Address: {i.address}\n")
+                    update_contact = input("Is this your contact? Press 'y' f yes, if not, then press 'n'!\n")
+                fname = input("Input First Name\n")
+                lname = input("Input Last Name\n")
+                number = input("Input Number\n")
+                number2 = input("Input Alternate Number\n")
+                addresss = input("Input Address\n")
+                Contact.update(firstName = fname, lastName = lname, number = number, altNumber = number2, address = addresss).where(Contact.id == idd).execute()
+                for i in Contact.select().where(Contact.id == idd):
+                    print("\nHere is your updated contact info.")
+                    print(f"\nContact ID: {i.id}")
+                    print(f"First Name: {i.firstName}")
+                    print(f"Last Name: {i.lastName}")
+                    print(f"Number: {i.number}")
+                    print(f"Alt number: {i.altNumber}")
+                    print(f"Address: {i.address}\n")
+            delete_contact = input("Would you like to delete a contact? Press 'y' f yes, if not, then press 'n'!\n")
+            while delete_contact != 'y' and delete_contact != 'n':
+                delete_contact = input(f"\nApologies if you misread... {delete_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
+            if delete_contact == 'y':
+                idd = input("What is your contact's id?\n")
+                for i in Contact.select().where(Contact.id == idd):
+                    print(f"\nContact ID: {i.id}")
+                    print(f"First Name: {i.firstName}")
+                    print(f"Last Name: {i.lastName}")
+                    print(f"Number: {i.number}")
+                    print(f"Alt number: {i.altNumber}")
+                    print(f"Address: {i.address}\n")
+                delete_contact = input("Is this your contact? Press 'y' f yes, if not, then press 'n'!\n")
+                while delete_contact != 'y' and delete_contact != 'n':
+                    delete_contact = input(f"\nApologies if you misread... {delete_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
+                while delete_contact == 'n':
+                    idd = input("What is your contact's id?\n")
+                    for i in Contact.select().where(Contact.id == idd):
+                        print(f"\nContact ID: {i.id}")
+                        print(f"First Name: {i.firstName}")
+                        print(f"Last Name: {i.lastName}")
+                        print(f"Number: {i.number}")
+                        print(f"Alt number: {i.altNumber}")
+                        print(f"Address: {i.address}\n")
+                    delete_contact = input("Is this your contact? Press 'y' f yes, if not, then press 'n'!\n")
+                delete_contact = input(f"Are you sure you wish to delete contact {idd}? Press 'y' f yes, if not, then press 'n'!\n")
+                while delete_contact != 'y' and delete_contact != 'n':
+                    delete_contact = input(f"\nApologies if you misread... {delete_contact} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
+                if delete_contact == 'y':
+                    Contact.delete().where(Contact.id == idd).execute()
+                    print(f"\nContact {idd} Deleted For All Eternity.")
+            proceed = input("\nAll operations complete, would you like to go back to the top? Press 'y' f yes, if not, then press 'n'!\n")
+            while proceed != 'y' and proceed != 'n':
+                proceed = input(f"\nApologies if you misread... {proceed} is not a valid response. Are you perhaps not educated? Press 'y' to continue, if not, then press 'n'.\n")
 
-
-    print("Thank you for using our industry leading application!\nWe hope to see you again soon!")
+    print("\nThank you for using our industry leading application!\nWe hope to see you again soon!")
 
 address_book()  
